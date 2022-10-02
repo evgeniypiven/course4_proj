@@ -53,7 +53,7 @@ class Dev(Configuration):
     DEBUG = True
 
     ALLOWED_HOSTS = values.ListValue(
-        ["localhost", "0.0.0.0", ".codio.io", str(os.environ.get('CODIO_HOSTNAME')) + '-8000.codio.io'])
+        ["localhost", "0.0.0.0", '127.0.0.1', ".codio.io", str(os.environ.get('CODIO_HOSTNAME')) + '-8000.codio.io'])
     X_FRAME_OPTIONS = "ALLOW-FROM " + str(os.environ.get("CODIO_HOSTNAME")) + "-8000.codio.io"
     CSRF_TRUSTED_ORIGINS = [str(os.environ.get("CODIO_HOSTNAME")) + "-8000.codio.io"]
     CSRF_COOKIE_SECURE = True
@@ -71,6 +71,7 @@ class Dev(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'movies',
+        'gh',
     ]
 
     MIDDLEWARE = [
