@@ -72,6 +72,7 @@ class Dev(Configuration):
         'django.contrib.staticfiles',
         'movies',
         'gh',
+        'django_celery_results'
     ]
 
     MIDDLEWARE = [
@@ -149,3 +150,6 @@ class Dev(Configuration):
     # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
     STATIC_URL = '/static/'
+
+    CELERY_RESULT_BACKEND = "django-db"
+    CELERY_BROKER_URL = "redis://localhost:6379/0"
